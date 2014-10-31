@@ -28,6 +28,10 @@ local.properties
 # PDT-specific
 .buildpath
 
+#################
+## Grunt
+#################
+node_modules/
 
 #################
 ## Visual Studio

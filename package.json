@@ -1,0 +1,19 @@
+{
+    "name": "Matrakempo",
+    "version": "0.1.0",
+    "author": "Tamas Kuti",
+    "private": true,
+    
+    "devDependencies": {
+        "grunt":                        "~0.4.0",
+        "grunt-contrib-cssmin":         "*",
+        "grunt-contrib-sass":           "*",
+        "grunt-contrib-requirejs":      "*",
+        "grunt-contrib-clean":          "*",
+        "grunt-contrib-watch":          "*",
+        "grunt-cssc":                   "*",
+        "grunt-contrib-imagemin":       "*",
+        "grunt-contrib-copy":           "*",
+        "matchdep":                     "*"
+    }
+}

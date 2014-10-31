@@ -1,0 +1,1 @@
+define("drawermenu",["jquery"],function(g){function c(){a.hasClass(b)||a.addClass(b)}function d(){a.hasClass(b)&&a.removeClass(b)}var a=$("body"),b="drawer-menu-opened",e=$("[data-drawer-opener]"),f=$("[data-drawer-closer]");return{init:function(){e.on({"click.openDrawer":c});f.on({"click.closeDrawer":d})}}});

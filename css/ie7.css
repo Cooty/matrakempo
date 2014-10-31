@@ -1,0 +1,78 @@
+/*
+Syntax error: Invalid CSS after "...in user-select(": expected variable (e.g. $foo), was "@value: none) {"
+        on line 44 of scss/base/_mixins.scss
+        from line 3 of scss/base/_base.scss
+        from line 1 of scss/ie7.scss
+
+39: // Font-size from px in rem
+40: @mixin font-size($sizeValue: 1.6) {
+41:     font-size: getRem($sizeValue);
+42: }
+43: 
+44: @mixin user-select(@value: none) {
+45:     -webkit-user-select: @value;  /* Chrome all / Safari all *\/
+46:     -moz-user-select: @value;     /* Firefox all *\/
+47:     -ms-user-select: @value;
+48:     user-select: @value;    
+49: }
+
+Backtrace:
+scss/base/_mixins.scss:44
+scss/base/_base.scss:3
+scss/ie7.scss:1
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/scss/parser.rb:1149:in `expected'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/script/lexer.rb:206:in `expected!'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/script/parser.rb:483:in `assert_tok'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/script/parser.rb:355:in `block in defn_arglist!'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/script/parser.rb:354:in `loop'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/script/parser.rb:354:in `defn_arglist!'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/script/parser.rb:104:in `parse_mixin_definition_arglist'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/scss/parser.rb:1022:in `sass_script'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/scss/parser.rb:184:in `mixin_directive'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/scss/parser.rb:174:in `special_directive'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/scss/parser.rb:146:in `directive'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/scss/parser.rb:553:in `block_child'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/scss/parser.rb:546:in `block_contents'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/scss/parser.rb:82:in `stylesheet'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/scss/parser.rb:27:in `parse'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/engine.rb:342:in `_to_tree'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/engine.rb:274:in `to_tree'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:225:in `visit_import'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:227:in `block in visit_import'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:227:in `map'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:227:in `visit_import'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `map'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:7:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/tree/root_node.rb:20:in `render'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/engine.rb:315:in `_render'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/engine.rb:262:in `render'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:201:in `each'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:283:in `block in watch'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/vendor/listen/lib/listen/multi_listener.rb:108:in `call'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/vendor/listen/lib/listen/multi_listener.rb:108:in `on_change'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/vendor/listen/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:56:in `call'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:56:in `poll'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.2.19/vendor/listen/lib/listen/adapters/polling.rb:32:in `block in start'
+*/
+
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"...in user-select(\": expected variable (e.g. $foo), was \"@value: none) {\"\A         on line 44 of scss/base/_mixins.scss\A         from line 3 of scss/base/_base.scss\A         from line 1 of scss/ie7.scss\A \A 39: // Font-size from px in rem\A 40: @mixin font-size($sizeValue: 1.6) {\A 41:     font-size: getRem($sizeValue);\A 42: }\A 43: \A 44: @mixin user-select(@value: none) {\A 45:     -webkit-user-select: @value;  /* Chrome all / Safari all */\A 46:     -moz-user-select: @value;     /* Firefox all */\A 47:     -ms-user-select: @value;\A 48:     user-select: @value;    \A 49: }"; }

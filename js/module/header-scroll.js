@@ -1,0 +1,1 @@
+define("headerscroll",["jquery","utils"],function(e,b){var d=parseInt($("[data-top]").height(),10),a=$("body"),c=$(window);return{init:function(){c.on({"scroll.headerPosition":b.debounce(function(b){parseInt(c.scrollTop(),10)>=d?a.hasClass("header--scrolled")||a.addClass("header--scrolled"):a.hasClass("header--scrolled")&&a.removeClass("header--scrolled")},50)})}}});

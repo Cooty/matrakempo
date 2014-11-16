@@ -7,9 +7,15 @@
 <section class="content grow-tall">
     <?php # Start hero ?>
     <?php
-      $random_num_suffix = rand(1, 9);
-      $small_image_suffix = is_mobile() ? 's/' : ''; 
-      $bg_image_path = get_bloginfo('template_directory').'/img/content/hero_page/'.$small_image_suffix.'bg_'.$random_num_suffix.'.jpg';
+        if(!has_post_thumbnail()) {
+            $random_num_suffix = rand(1, 9);
+            $small_image_suffix = is_mobile() ? 's/' : '';
+            $bg_image_path = get_bloginfo('template_directory').'/img/content/hero_page/'.$small_image_suffix.'bg_'.$random_num_suffix.'.jpg';
+        } else {
+            $thumb_id = get_post_thumbnail_id();
+            $arr_image_attachment = wp_get_attachment_image_src($thumb_id, 'page-poster');
+            $bg_image_path = $arr_image_attachment[0];
+        } 
     ?>
     <header class="hero hero--subpage z-bottom bg-dark2-grey">
         <div class="hero__img" style="background-image: url(<?= $bg_image_path; ?>)">

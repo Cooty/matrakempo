@@ -182,6 +182,9 @@
     // Single poster size
     add_image_size('single-poster', 800, 400, array( 'center', 'top' ));
     
+    // Page poster size
+    add_image_size('page-poster', 1440, 300, array( 'center', 'top' ));
+    
     // Avatar size for 'Klubtagok'
     add_image_size('avatar', 250, 270, array( 'center', 'top' ));
     

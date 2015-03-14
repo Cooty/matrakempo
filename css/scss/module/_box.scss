@@ -1,0 +1,152 @@
+$min_h: 400px;
+
+.box {
+    $desktop_gutter: $gutter * 2;
+    
+    position: relative;
+    display: block;
+    background-color: $white;
+    margin-bottom: $gutter;
+    
+    @media only screen and (min-width: $middleweight) {
+        margin-bottom: $desktop_gutter;   
+    }
+    
+    @media only screen and (min-width: $welterweight) {
+        min-height: $min_h;   
+    }
+    
+    &.box--person {
+        padding: 30px 0 40px 0;
+        height: 300px;
+        min-height: 0;
+        text-align: center;
+        @include transition(transform .3s ease-in-out, background-color .3s ease-in-out);
+        
+        @include active-state {
+            background-color: $grey;
+            @include transform(scale(1.05));
+        }
+    }
+    
+    .no-mediaqueries & {
+        min-height: $min_h;
+        margin-bottom: $desktop_gutter;
+    }
+    
+    .box__img {
+        position: relative;
+        overflow: hidden;
+        @include no-tap;
+        
+        > img {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            @include transition(transform .3s ease-in-out);
+        }
+        
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: none;
+            
+            > img {
+                @include transform(scale(1.1));
+            }
+            
+            .box__img__header {
+                color: $dark_green;
+                
+                .highlight {
+                    background: $white;
+                    box-shadow: 10px 0 0 $white, -10px 0 0 $white;
+                }
+                
+                .no-rgba & {
+                    background: $white;
+                }
+                
+            }
+            
+        }
+        
+        .box__img__header {
+            $desktop_fs: 2.2em;
+            $desktop_lh: 1.5;
+            
+            color: $green;
+            font-size: 2em;
+            padding-right: $gutter * 2;
+            @include position(absolute, 0 0 $gutter $gutter);
+            @include transition(color .3s ease-in-out);
+            
+            &.box__img__header--no-img {
+                position: static;
+                line-height: normal;
+                padding: $gutter $gutter 0 $gutter;
+            }
+            
+            @media only screen and (min-width: $middleweight) {
+                bottom: $gutter * 2;
+            }
+            
+            // consistent with the sizes of 'txt.txt--body-copy' - should always be +6px (TODO: move this to a calculation)
+            @media only screen and (min-width: $middleweight) {
+                font-size: $desktop_fs;
+                line-height: $desktop_lh;
+                
+                &.box__img__header--no-img {
+                    padding: ($gutter * 2) ($gutter * 2) 0 ($gutter * 2);
+                    line-height: normal;
+                }
+                
+            }
+            
+            @media only screen and (min-width: $light_heavyweight) {
+                font-size: 2.4em;
+            }
+            
+            .no-mediaqueries & {
+                font-size: $desktop_fs;
+                line-height: $desktop_lh;
+                
+                &.box__img__header--no-img {
+                    padding: ($gutter * 2) ($gutter * 2) 0 ($gutter * 2);
+                    line-height: normal;
+                }
+                
+            }
+            
+            .highlight {
+                $rgbaBg: rgba(255, 255, 255, .8);
+                background: $rgbaBg;
+                line-height: 1.4;
+                box-shadow: 10px 0 0 $rgbaBg, -10px 0 0 $rgbaBg;
+                
+                // fallback for no-rgba
+                .no-rgba & {
+                    background: transparent url(..img/asset/no_rgba_fff_a80.png) repeat 0 0;
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    .box__txt,
+    &.box__txt {
+        padding: $gutter;
+        
+        @media only screen and (min-width: $middleweight) {
+            padding: $desktop_gutter;
+        }
+        
+        .no-mediaqueries & {
+            padding: $desktop_gutter;
+        }
+        
+    }
+    
+}

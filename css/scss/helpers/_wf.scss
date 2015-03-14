@@ -1,0 +1,26 @@
+// ==== styles used for Web-fonts that are loaded via Google WebfontLoader ====
+
+// Prevent FAUC
+.wf {
+    visibility: hidden;
+    
+    .wf-active &,
+    .wf-inactive &,
+    .no-fontface & {        
+        visibility: visible;    
+    }
+    
+    &.wf--roboto {
+        font-family: $roboto_slab;
+        
+        &.wf--roboto--light {
+            font-weight: 300;    
+        }
+        
+        &.wf--roboto--bold {
+            font-weight: 700;    
+        }
+        
+    }
+    
+}

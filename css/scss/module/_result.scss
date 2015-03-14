@@ -1,0 +1,93 @@
+$table_w: 660px;
+
+.result-container {
+    padding-bottom: 10px;
+    
+    &:last-of-type {
+        padding-bottom: 0;
+    }
+    
+}
+
+.result {
+    margin-bottom: 30px;
+    
+    @media only screen and (max-width: $table_w) {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+    
+    @media only screen and (max-height: $tall - 1) {
+        margin-bottom: 20px;
+    }
+    
+    .result__table {
+        width: 100%;
+        min-width: $table_w;
+        border-collapse: collapse;
+        
+        td,
+        th {
+            padding: 5px 10px;
+            background-color: $white;
+            border: 1px solid $light3_grey;
+            border-width: 0 0 1px 0;
+            vertical-align: top;
+            
+            @media only screen and (max-width: $middleweight) {
+                padding: 5px;    
+            }
+            
+        }
+        
+        .result__table__row {
+            
+            th,
+            td {
+                text-align: left;
+            }
+            
+            .result__name {
+                width: 30%;
+            }
+            
+            .result__category {
+                width: 50%;
+            }
+            
+            .result__rank {
+                width: 20%;
+                text-align: right;
+            }
+            
+            
+        }
+        
+        .result__table__head-row {
+            
+            th {
+                background-color: $light3_grey;
+                border-bottom-color: darken($light3_grey, 10%);
+            }
+            
+        }
+        
+    }
+    
+    &.result--by-person {
+        
+        .result__table {
+            
+            .result__table__row {
+                
+                .result__category {
+                    width: 80%;
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+}

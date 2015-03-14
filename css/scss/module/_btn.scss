@@ -1,0 +1,103 @@
+.btn {
+    display: inline-block;
+    text-align: center;
+    border-radius: 3px;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    text-decoration: none;
+    @include middle-line(20px);
+    @include no-tap();
+    @include transition(background-color .3s ease-in);
+    @include box-sizing(content-box);
+    
+    &.btn--green-border {
+        border: 1px solid $dark_green;
+        @include active-state() {
+            background-color: $dark_green;  
+        };
+    }
+    
+    &.btn--green {
+        background-color: $green;
+        padding: 0 20px;
+        border-bottom: 3px solid $dark_green;
+        font-size: 14px;
+        color: $white;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
+        @include middle-line(40px);
+        
+        @include active-state() {
+            background-color: $dark_green;
+            border-bottom-color: $green;            
+        }
+        
+    }
+    
+    &.btn--grow {
+            
+        @media only screen and (min-width: $middleweight) and (min-height: $tall) {
+            padding: 0 40px;
+            border-bottom-width: 6px;
+            font-size: 20px;
+            @include middle-line(60px);
+            
+        }
+        
+    }
+    
+    &.btn--icon {
+        
+        .icon {
+            margin-left: 10px;
+            border: 1px solid $green;
+            border-radius: 20px;
+            background-color: $dark_green;
+            vertical-align: middle;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, .4) inset;
+        }
+        
+    }
+    
+    &.btn--square {
+        width: 39px;
+        padding: 9px 0 10px 0;
+    }
+    
+    &.btn--circle {
+        width: 39px;
+        height: 39px;
+        padding: 0;
+        border: 1px solid $white;
+        border-radius: 39px;
+        line-height: 37px;
+        @include transition(border-color .3s ease-in);
+        
+        @include active-state() {
+            border-color: $green;  
+        };
+        
+    }
+    
+    &.btn--menu {
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        
+        &.btn--menu--search {
+            left: 0;
+            
+            @media only screen and(min-width: $middleweight) {
+                left: auto;
+                right: 0;
+            }
+            
+        }
+        
+        &.btn--menu--list {
+            right: 0;
+        }
+        
+    }
+    
+}

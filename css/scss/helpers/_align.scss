@@ -1,0 +1,21 @@
+// thx.: http://css-tricks.com/centering-in-the-unknown/
+// immediate children must be 'display: inline' or 'display: inline-block' and need to have a 'vertical-align: middle' set
+// 'white-space: no-wrap' is needed for FF
+.align-content-v-center {
+    white-space: nowrap;
+    
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em; /* Adjusts for spacing */
+    }
+    
+    .centered {
+        display: inline-block;
+        vertical-align: middle;
+        white-space: normal;
+    }
+    
+}

@@ -1,0 +1,95 @@
+// The media object for image-text based content snippets
+// thx.: http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+.media {
+    $fb_icon_size: 50px;
+    $triangle_size: 10px;
+    
+    display: block;
+    
+    &,
+    .media__desc {
+        min-height: 20px; // not to cut of the bottom of the letters if only a single line H3 header is the content 
+        overflow: hidden; // fix for IE7 included in 'fallback/ie7/_media.scss'
+    }
+    
+    &.media--list {
+        
+        .media__img {
+            
+            @media only screen and (max-width: 480px) {
+                display: none;
+            }
+            
+        }
+        
+        .media__desc {
+            padding: 20px 20px 20px 0;
+            
+            @media only screen and (max-width: 480px) {
+                padding-left: 20px;
+            }
+            
+        }
+        
+    }
+    
+    &.media--fb {
+        
+        .media__desc {
+            color: $black;
+            
+            a {
+               color: $fb;
+               text-decoration: underline;
+               
+                &:hover,
+                &:focus,
+                &:active {
+                    text-decoration: none;
+                }
+               
+            }
+            
+        }
+        
+        .media__img {
+            position: relative;
+            background-color: $fb;
+            color: $white;
+            text-align: center;
+            line-height: $fb_icon_size;
+            font-size: 12px;
+            @include size($fb_icon_size);
+            
+            &:after {
+                content: '';
+                position: absolute;
+                top: ($fb_icon_size - $triangle_size) / 2;
+                right: -$triangle_size;
+                line-height: 0;
+                height: 0;
+                border-top: $triangle_size solid $fb;
+                border-right: $triangle_size solid transparent;
+            }
+            
+        }
+        
+    }
+    
+    .media__img {
+        float: left;
+        margin-right: $gutter * 2;
+        
+        &.media__img--small {
+            @include size(80px);
+        }
+        
+        > img {
+            display: block;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+    }
+    
+}

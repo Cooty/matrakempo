@@ -1,0 +1,73 @@
+.box-404 {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: $gutter * 4;
+    
+    .box-404__heading {
+        margin-bottom: $gutter * 2;
+        font-size: 30px;
+        line-height: 1.2;
+        color: $white;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, .4);
+        
+        @media only screen and (min-width: $welterweight) {
+            margin-bottom: $gutter * 3;
+            font-size: 40px;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, .4);
+        }
+        
+        @media only screen and (min-width: $middleweight) {
+            margin-bottom: $gutter * 4;
+            font-size: 60px;
+            line-height: 1;
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, .4);
+        }
+        
+        @media only screen and (min-width: $light_heavyweight) {
+            font-size: 80px;
+            text-shadow: 4px 4px 0 rgba(0, 0, 0, .4);
+        }
+        
+        .no-mediaqueries & {
+            margin-bottom: $gutter * 4;
+            font-size: 80px;
+            line-height: 1;
+        }
+        
+        @media only screen and (min-width: $heavyweight) {
+            font-size: 100px;
+            text-shadow: 4px 4px 0 rgba(0, 0, 0, .4);
+        }
+        
+    }
+    
+    .box-404__box {
+        padding: $gutter * 2;
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: $white;
+        background-color: rgba($white, .9);
+        box-shadow: 4px 4px 0 rgba(0, 0, 0, .4);
+        
+        a {
+            color: $dark-green;
+            text-decoration: none;
+            border-bottom: 2px solid $dark_green;
+            
+            &:hover,
+            &:focus,
+            &:active {
+                border-bottom: none;
+            }
+            
+            &:visited {
+                color: $light_green;
+                border-color: $light_green;
+            }
+            
+        }
+        
+    }
+    
+}

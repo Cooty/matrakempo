@@ -1,0 +1,38 @@
+.back-to-top {
+    position: fixed;
+    right: -200px;
+    bottom: 20px;
+    white-space: nowrap;
+    @include size(40px);
+    @include send-to-gpu();
+    
+    .icon {
+        position: relative;
+    }
+    
+    .back-to-top__circle {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        bottom: 18px;
+        left: 18px;
+        border: 1px solid $dark_green;
+        border-radius: 40px;
+        background-color: $green;
+        @include transition(all .3s $ease-in-cubic);
+    }
+    
+    &.back-to-top--show {
+        right: 20px;
+        
+        .back-to-top__circle {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+        }   
+        
+    }
+    
+}

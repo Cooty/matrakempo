@@ -1,0 +1,5 @@
+.hr {
+    // TODO: figure out why does the svg look blury
+    background: url(../img/asset/hr.png) no-repeat 50% 0;
+    @include size(100% 5px);   
+}

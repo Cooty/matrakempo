@@ -1,0 +1,267 @@
+// No tap highlight mixin
+@mixin no-tap {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
+	-ms-touch-action: none;
+	outline: none;
+}
+
+@mixin hide-text {
+    overflow: hidden;
+    text-indent: -990em;
+}
+
+// Active state (hover, focus, active, and optional class)
+@mixin active-state($rule: false, $hover: true, $active: true) {
+
+	$pseudo: '';
+
+	@if $active == true {
+		$pseudo: $pseudo + '&:focus, &:active,';
+	}
+
+	@if $hover == true {
+		$pseudo: $pseudo + 'html.no-touch &:hover, html.no-js &:hover,';
+	}
+
+	@if $rule != false {
+		#{$pseudo}
+		#{$rule} {
+			@content;
+		}
+	} @else {
+		#{$pseudo} {
+			@content;
+		}
+	}
+}
+
+// Font-size from px in rem
+@mixin font-size($sizeValue: 1.6) {
+    font-size: getRem($sizeValue);
+}
+
+// set cutom text selection
+@mixin custom-text-selection($bgcolor, $color, $ref: false) {
+    $prefix: '';
+    
+    @if ($ref == true) {
+        $prefix: '&';
+    }
+    
+    ::selection {
+	background-color: $bgcolor;
+        color: $color;
+    }
+        
+    ::-moz-selection {
+        background-color: $bgcolor;
+        color: $color;
+    }
+}
+
+// Multi-line text-ellipse
+@mixin multi-text-overflow($lines: 2) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: $lines;
+	@include display-box;
+	@include box-orient(vertical);
+}
+
+// Colorize attribute based on color swatches
+@mixin colorize($attributes: 'color', $className: 'color', $pseudo: '', $ref: '&') {
+
+	@each $base-color in $base-color-names {
+
+		$colorValue: nth($base-colors, index($base-color-names, $base-color));
+
+	#{$ref}.#{$className}-#{$base-color}#{$pseudo} {
+
+			@each $attribute in $attributes {
+				#{$attribute}: $colorValue;
+			}
+
+		}
+
+	}
+
+}
+
+// cross-browser text hyphenation
+@mixin hyphenate($value) {
+	-moz-hyphens: $value;
+	-ms-hyphens: $value;
+	-webkit-hyphens: $value;
+	hyphens: $value;
+}
+
+// Triggers GPU acceleration in webkit (futureproof for W3C)
+// Only use it for elements that need smooth transitions!
+@mixin send-to-gpu {
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+// Sets line-height and height to the same number so the text will align vertically to the middle
+@mixin middle-line($height) {
+	height: $height;
+	line-height: $height;
+}
+
+// Set REM based on breakpoints
+@mixin remSetterByBreakpoints($list) {
+
+	@if ($isRemModifyOn) {
+
+		$query-min: false;
+		$query-max: false;
+		$index: 0;
+
+		@each $breakPoint in $remBreakPoints {
+
+			$index: index($remBreakPoints, $breakPoint);
+
+			@if ($index > 0) {
+				$query-min: $breakPoint;
+			} @else {
+				$query-min: false;
+			}
+
+			@if ($index < length($remBreakPoints)) {
+				$query-max: nth($remBreakPoints, $index+1);
+			} @else {
+				$query-max: false;
+			}
+
+			@if ($query-min) {
+
+				@if ($query-max) {
+
+					@media only screen and (min-width: #{$query-min}) and (max-width: #{$query-max}) {
+
+						& {
+							font-size: nth($list, $index)
+						}
+
+					}
+
+				} @else {
+
+					@media only screen and (min-width: #{$query-min}) {
+
+						& {
+							font-size: nth($list, $index)
+						}
+
+					}
+
+				}
+
+			} @else {
+
+				@media only screen and (max-width: #{$query-max}) {
+
+					& {
+						font-size: nth($list, $index)
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+
+@mixin rem($property, $values) {
+	$px: ();
+	$rem: ();
+
+	@each $value in $values {
+
+		@if $value == 0 or $value == auto {
+			$px : append($px , $value);
+			$rem: append($rem, $value);
+		} @else {
+			$unit: unit($value);
+			$val: parseInt($value);
+
+			@if $unit == "px" {
+				$px : append($px,  $value);
+				$rem: append($rem, ($val / $document-font-size + 0rem));
+			}
+
+			@if $unit == "rem" {
+				$px : append($px,  ($val * $document-font-size + 0px));
+				$rem: append($rem, $value);
+			}
+		}
+	}
+
+	@if $px == $rem {
+		#{$property}: $px;
+	} @else {
+		#{$property}: $px;
+		//#{$property}: $rem;
+	}
+}
+
+
+@mixin mediaquery($queryProperty: width, $mediaMin: 100, $mediaMax: 0) {
+	$query: "";
+	@if $mediaMax > $mediaMin {
+		$query: "only screen and (min-" + $queryProperty + ": " + $mediaMin + ") and (max-" + $queryProperty + ": " + $mediaMax + ")";
+	} @else {
+		$query: "only screen and (min-" + $queryProperty + ": " + $mediaMin + ")";
+	}
+
+	$query: unquote($query);
+
+	@media #{$query} {
+		@content;
+	}
+}
+
+
+@mixin makespacings($spacing: $default-spacing, $suffix: '', $directions: 'top' 'right' 'bottom' 'left', $sizes: 'half' 'one' 'double' 'triple') {
+
+	@for $i from 1 through length($sizes) {
+		$name: nth($sizes, $i);
+		$multiplier: 0;
+
+		@if ($i == 1) {
+			$multiplier: .5;
+		}
+		@else {
+			$multiplier: $i - 1;
+		}
+
+		@each $direction in $directions {
+
+			.margin-#{$direction}-#{$name}#{$suffix} {
+				margin-#{$direction}: $spacing * $multiplier;
+			}
+
+			.padding-#{$direction}-#{$name}#{$suffix} {
+				padding-#{$direction}: $spacing * $multiplier;
+			}
+
+		}
+
+		//We need margin/padding on all for sides too
+		.margin-#{$name}#{$suffix} {
+			margin: $spacing * $multiplier;
+		}
+
+		.padding-#{$name}#{$suffix} {
+			padding: $spacing * $multiplier;
+		}
+
+	}
+
+}

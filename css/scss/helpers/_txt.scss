@@ -1,0 +1,87 @@
+// general styling for text
+.txt {
+    $desktop_fs: 1.7em;
+    $desktop_lh: 1.4em;    
+    
+    &.txt--upper {
+        text-transform: uppercase;
+    }
+    
+    &.txt--nowrap {
+        white-space: nowrap;
+        
+        &.txt--nowrap--blk--i-container {
+            font-size: 0;
+        }
+        
+    }
+    
+    &.txt--light-grey {
+        color: $light_grey;
+    }
+    
+    &.txt--light2-grey {
+        color: $light2_grey;
+    }
+    
+    &.txt--bold {
+        font-weight: 700;
+    }
+    
+    &.txt--align-right {
+        text-align: right;
+    }
+    
+    &.txt--align-left {
+        text-align: left;
+    }
+    
+    &.txt--align-center {
+        text-align: center;
+    }
+    
+    &.txt--small {
+        font-size: 1.2em;
+    }
+    
+    &.txt--body-copy {
+        font-size: 1.6em;
+        line-height: 1.2;
+        
+        &.leading-large {
+            line-height: 1.6;
+        }
+        
+        @media only screen and (min-width: $middleweight) {
+            font-size: $desktop_fs;
+            line-height: $desktop_lh;
+        }
+        
+        @media only screen and (min-width: $light_heavyweight) {
+            font-size: 1.9em;
+        }
+        
+        .no-mediaqueries & {
+            font-size: $desktop_fs;
+            line-height: $desktop_lh;
+        }
+        
+        .txt--small,
+        &.txt--small {
+            font-size: .9em;    
+        }
+        
+    }
+    
+    &.txt--aside-copy {
+        font-size: 1.4em;
+    }
+    
+    &.txt--align-center-welterweight {
+        // deviate from mobile-first approach, cause this will mostly be used in smaller sizes and the default will be always left 
+        @media only screen and (max-width: $welterweight - 1) {
+            text-align: center;
+        }   
+    }
+    
+}

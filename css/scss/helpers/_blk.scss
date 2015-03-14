@@ -1,0 +1,61 @@
+.blk {
+    display: block;
+    
+    &.blk--i {
+        display: inline-block;
+    }
+    
+    .blk--full {
+        @include size(100%);   
+    }
+    
+    &.blk--no-ws {
+        font-size: 0; 
+    }
+    
+    &.blk--center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    &.blk--rel { position: relative; }
+    
+    &.blk--hidden { overflow: hidden; }
+    
+    &.blk--full-h {
+        position: relative;
+        height: 100%;
+    }
+    
+    &.blk--align-tl,
+    &.blk--align-tr {
+        position: absolute;
+        top: 0;
+    }
+    
+    &.blk--align-tl {
+        left: 0;
+    }
+    
+    &.blk--align-tr {
+        right: 0;
+    }
+    
+    &.blk--centerize-content {
+        
+        &:before {
+            content: '';
+            position: relative;
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+        
+        .centerized {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+    }
+    
+}

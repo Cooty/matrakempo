@@ -1,0 +1,45 @@
+// ==== Typo ====
+$base_font_size: 62.5%; // 10px for easy-to-calculate em/rem-sizes
+$base_line_height: 1;
+
+$roboto_slab_fallback_stack: 'Georgia', 'Times', serif;
+$tinos_fallback_stack: 'Garamond', 'Times New Roman', serif;
+
+$roboto_slab: 'Roboto Slab', #{$roboto_slab_fallback_stack};
+$tinos: 'Tinos', #{$tinos_fallback_stack};
+
+// ==== Layout sizes ====
+$top_h: 40px;
+$header_h_short: 50px;
+$header_h_tall: 100px;
+$decor_h: 6px;
+$footer_v_gutter: 30px;
+$header_content_vert_gutter: 40px;
+
+$logo_size: 62 70;
+$logo_size_tall: 111 122;
+
+$default_site_w: 940px; // + 10*2 = 960 
+
+$page_min_w: 320px;
+$drawer-menu_w: 280px;
+
+$search_h: 120px;
+
+// z-index order
+$z_bottom: 1;
+$z_low: 10;
+$z_middle: 100;
+$z_high: 1000;
+
+// grid
+$gutter: 10px;
+
+// ==== breakpoints ====
+$welterweight: 721px;
+$middleweight: 961px;
+$light_heavyweight: 1281px;
+$heavyweight: 1441px;
+
+// heights:
+$tall: 751px;

@@ -1,0 +1,11 @@
+.top {
+    color: $white;
+    text-align: center; //TODO: change in larger sizes
+    background-color: $black;
+    @include middle_line($top_h);
+    
+    .top__header {
+        font-size: 16px;
+    }
+    
+}

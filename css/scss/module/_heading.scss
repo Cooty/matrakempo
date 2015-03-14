@@ -1,0 +1,67 @@
+.heading {
+    $desktop_fs_alpha: 5em;
+    $desktop_fs_beta: 3em;    
+    $desktop_fs_delta: 1.8em;
+    font-weight: 700;
+    
+    a &,
+    > a {
+        color: $green;
+        text-decoration: none;
+        
+        @include active-state() {
+            color: $dark_green;
+        }
+        
+    }
+    
+    &.heading--alpha {
+        font-size: 3.5em;
+        
+        @media only screen and (min-width: $middleweight) {
+            font-size: $desktop_fs_alpha;
+        }
+        
+        .no-mediaqueries & {
+            font-size: $desktop_fs_alpha;
+        }
+        
+    }
+    
+    &.heading--beta {
+        font-size: 2.5em;
+        
+        @media only screen and (min-width: $middleweight) {
+            font-size: $desktop_fs_beta;
+        }
+        
+        .no-mediaqueries & {
+            font-size: $desktop_fs_beta;
+        }
+        
+    }
+    
+    &.heading--delta {
+        font-size: 1.5em;
+        line-height: 1.2;
+        
+        @media only screen and (min-width: $middleweight) {
+            font-size: $desktop_fs_delta;
+        }
+        
+        .no-mediaqueries & {
+            font-size: $desktop_fs_delta;
+        }
+        
+    }
+    
+    &.heading--big-white {
+        color: $white;  
+    }
+    
+    &.heading--on-texture {
+        color: $light_grey;
+        text-shadow: 1px 1px 1px $white;
+    }
+    
+}

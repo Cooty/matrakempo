@@ -1,0 +1,34 @@
+body,
+html {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    font: normal #{$base_font_size}/#{$base_line_height} #{$tinos};
+    color: $black;
+    background: $dark2_grey;
+}
+
+body {
+    min-width: $page_min_w;
+    overflow-x: hidden;
+    @include custom-text-selection($green, $white);
+    
+    &.drawer-menu-opened {
+        position: fixed;
+        overflow-y: scroll; 
+    }
+    
+    &.page-404 {
+        background: url(../img/content/hero_home/bg_4.jpg) no-repeat 50% $header_h_short;        
+        background-size: cover;
+        
+        @media only screen and (min-height: $tall) {
+            background-position: 50% $header_h_tall;
+        }
+        
+    }
+    
+}

@@ -1,0 +1,31 @@
+.footer {
+    padding: $footer_v_gutter 0;
+    color: $white;
+    
+    .footer__addr {
+        
+        a {
+            color: $dark_green;
+            border-bottom: 2px solid $dark_green;
+            text-decoration: none;
+            @include no-tap();
+            
+            @include active-state() {
+                border-bottom: none;
+            }
+            
+            &:visited {
+                border-color: $light_green;
+                color: $light_green;
+            }
+            
+        }
+        
+    }
+    
+    .g-map {
+        width: 100%;
+        height: 300px;
+    }
+    
+}

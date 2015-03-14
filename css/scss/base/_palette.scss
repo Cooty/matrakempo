@@ -1,0 +1,19 @@
+// color palette for the site
+$white: #fff;
+$black: #000;
+
+$green: #3cbf39; //rgb(60, 191, 57)
+$dark_green: #2da02a; //rgb(45, 160, 42)
+$light_green: lighten($green, 10%);
+
+$grey: #2f2f2f; //rgb(47, 47, 47)
+$dark_grey: #252525; //rgb(37, 37, 37)
+$dark2_grey: #181818; //rgb(24, 24, 24)
+$light_grey: #353535; //rgb(53, 53, 53)
+$light2_grey: #5a5a5a; //rgb(90, 90, 90)
+$light3_grey: lighten($light2_grey, 40%);
+$light4_grey: lighten($light3_grey, 20%);
+
+$kheki: #ebeba3; //rgb(235, 235, 163)
+
+$fb: #3B5998; //Facebook brand color

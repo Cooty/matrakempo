@@ -1,0 +1,181 @@
+.hero {
+    $home_desktop_h: 471px;
+    
+    position: relative;
+    width: 100%;
+    
+    &.hero--homepage {
+        height: 157px;
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        background-size: cover;
+        margin-bottom: $header_content_vert_gutter;
+        
+        @media only screen and (min-width: $middleweight) and (min-height: $tall) {
+            margin-bottom: $header_content_vert_gutter + $gutter * 2;
+        }
+        
+        @media only screen and (min-width: $welterweight) {
+            height: 353px;
+        }
+        
+        @media only screen and (min-width: $middleweight) {
+            height: $home_desktop_h;
+        }
+        
+        @media only screen and (min-width: $light_heavyweight) {
+            height: 500px;
+        }
+        
+        @media only screen and (min-width: $heavyweight) {
+            height: 650px; // change the aspect ratio the bottom of the image will get clipped, but the picture won't get distorted 
+        }
+        
+        .no-mediaqueries & {
+            height: $home_desktop_h;
+        }
+        
+        // shade background for the text
+        &:after {
+            content: '';
+            display: block;
+            background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.75))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.75) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.75) 100%); /* Opera 11.10+ */
+            background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.75) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+            @include position(absolute, 0 0 0px 0px);
+            @include size(100% 50%);
+        }
+        
+    }
+    
+    .hero__text-scroller {
+        @include position(absolute, 0 10px 40px 10px);
+        
+        @media only screen and (min-width: $welterweight) {
+            right: 30px;
+            left: 30px;
+        }
+        
+        .no-mediaqueries & {
+            right: 30px;
+            left: 30px;
+            bottom: 80px;
+        }
+        
+        @media only screen and (min-width: $middleweight) {
+            bottom: 80px;
+        }
+        
+        .hero__text-scroller__item {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-size: 20px;
+            line-height: 1.2;
+            color: $white;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, .4);
+            cursor: default;
+            @include transition(all .7s $ease-out-cubic);
+            
+            // styles for the hidden state
+            opacity: 0;
+            @include transform(scale(.2));
+            
+            &.animate-in {
+                opacity: 1;
+                @include transform(scale(1)); 
+            }
+            
+            &.animate-out {
+                opacity: 0;
+                @include transform(scale(2)); 
+            }
+            
+            
+            @media only screen and (min-width: $welterweight) {
+                font-size: 35px;
+                text-shadow: 2px 2px 0 rgba(0, 0, 0, .4);
+            }
+            
+            @media only screen and (min-width: $middleweight) {
+                font-size: 50px;
+                line-height: 1;
+                text-shadow: 3px 3px 0 rgba(0, 0, 0, .4);
+            }
+            
+            @media only screen and (min-width: $light_heavyweight) {
+                font-size: 70px;
+                text-shadow: 4px 4px 0 rgba(0, 0, 0, .4);
+            }
+            
+            .no-mediaqueries & {
+                font-size: 70px;
+                line-height: 1;
+            }
+            
+            @media only screen and (min-width: $heavyweight) {
+                font-size: 80px;
+                text-shadow: 4px 4px 0 rgba(0, 0, 0, .4);
+            }
+            
+            
+        }
+        
+    }
+
+    &.hero--subpage {
+        overflow: hidden;
+        
+        .hero__img {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            max-width: $heavyweight - 1;
+            margin: 0 auto;
+            background-repeat: no-repeat;
+            background-position: 50% 0;
+            background-size: cover;
+            
+            &.post {
+                max-width: 800px;
+                
+                @media only screen and (min-width: $middleweight) {
+                    height: 400px;
+                }
+                
+                .no-mediaqueries & {
+                    height: 400px;
+                }
+                
+            }
+            
+        }
+        
+        //  we set a fixed height so the content won't 'jump' when the hero-image loads, the user will need to upload an image with the actual height of 300px
+        //  800x300px for the posts and 1440x300 for the pages
+        .hero__img {
+            
+            // dimensons are calculated based on the resized proportinal size of a 1440x300 image!
+            @media only screen and (max-width: $light_heavyweight - 1) {
+                height: 263px;
+            }
+            
+            @media only screen and (max-width: $middleweight - 1) {
+                height: 200px;
+            }
+            
+        }
+        
+    }
+
+    .hero__cta {
+        width: 100%;
+        z-index: 1;
+        @include position(absolute, 0 0 -20px 0px);
+    }
+    
+}

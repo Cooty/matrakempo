@@ -1,0 +1,79 @@
+$submit_w: 40px;
+
+.search {
+    position: relative;
+    overflow: hidden;
+    background-color: $grey;
+    @include size(100% 0);
+    @include transition(height .2s $ease-out-quad);
+    
+    .csstransitions & {
+        &.search--opened {
+            height: $search_h;    
+        }
+        
+    }
+    
+    &:after {
+        content: '';
+        background-color: $dark_grey;
+        @include position(absolute, 0 0 0px 0px);
+        @include size(100% 10px);
+    }
+    
+    .search__wrapper {
+        position: relative;
+        top: 50px;
+        height: 40px;
+        width: 90%;
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: 14px;
+        
+        .search__query {
+            display: block;
+            background-color: $white;
+            border-radius: 3px;
+            border: 1px solid $green;
+            padding: 0 ($submit_w + 10) 0 10px;
+            box-shadow: 0 2px 0 rgba(0, 0, 0, .4s);
+            @include box-sizing(border-box);
+            @include size(100% 40px);
+            @include transition(border-color .3s ease-in);
+            
+            // customized text-clear button webkit-only 
+            &::-webkit-search-cancel-button {
+                display: block;
+                background: $light_grey url(../img/sprite/sprite.svg) no-repeat 0 -40px;
+                border-radius: 20px;
+                cursor: pointer;
+                @include position(absolute, 10px ($submit_w + 10) 0 0);
+                @include size(20);
+            }
+            
+            &:focus {
+                border-color: $dark_green;
+                outline: none;
+            }
+            
+        }
+        
+        .search__submit {
+            border-radius: 0 3px 3px 0;
+            background-color: $green;
+            @include size($submit_w 100%);
+            @include position(absolute, 0px 0px 0 0);
+            
+            @include active-state(){
+                background-color: $dark_green;
+            }
+            
+        }
+        
+        .search__close {
+            @include position(absolute, -35px 0 0 5px);
+        }
+        
+    }
+    
+}

@@ -188,6 +188,23 @@
     // Avatar size for 'Klubtagok'
     add_image_size('avatar', 250, 270, array( 'center', 'top' ));
     
+    /**
+    * Attach a class to linked images' parent anchors
+    * e.g. a img => a.img img
+    */
+   function give_linked_images_class($html, $id, $caption, $title, $align, $url, $size, $alt = '' ){
+    $classes = 'img-link'; // separated by spaces, e.g. 'img image-link'
+   
+    // check if there are already classes assigned to the anchor
+    if ( preg_match('/<a.*? class=".*?">/', $html) ) {
+       $html = preg_replace('/(<a.*? class=".*?)(".*?>)/', '$1 ' . $classes . '$2', $html);
+    } else {
+       $html = preg_replace('/(<a.*?)>/', '$1 class="' . $classes . '" >', $html);
+    }
+    return $html;
+   }
+   add_filter('image_send_to_editor','give_linked_images_class',10,8);
+    
     /*
     Plugin Name: Image P tag remover
     Description: Plugin to remove p tags from around images in content outputting, after WP autop filter has added them. (oh the irony)
@@ -276,6 +293,17 @@
     
 	    echo '</ul></div>' . "\n";
     
+    }
+    
+    /**
+     * Convert an image to base64 string
+     * @arg {String}	$path - the path to the image
+    */
+    function image_to_base64($path) {
+	$type = pathinfo($path, PATHINFO_EXTENSION);
+	$data = file_get_contents($path);
+	$base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+	return $base64;
     }
     
 ?>

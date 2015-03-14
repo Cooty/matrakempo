@@ -7,7 +7,7 @@
                 <div class="grid__item one-half--welterweight">
                   <div class="grid__item__gutter pb-20--welterweight">
                     <address class="footer__addr txt txt--align-center-welterweight txt--body-copy leading-large">
-                        Tel.: <span class="hide-on-smartphone">06-20-965-28-74</span><a href="tel:0620-9652874" class="show-on-smartphone">06-20-965-28-74</a><br>
+                        Tel.: <span class="non-mobile">06-20-965-28-74</span><a href="tel:0620-9652874" class="only-mobile">06-20-965-28-74</a><br>
                         Email: <a href="mailto:matrakempose@gmail.com ">matrakempose@gmail.com</a><br>
                         Edzések helye: Gladiator Dock, Gábor áron úti laktanya 2740/45 hrsz., Gyöngyös, 3200
                     </address>

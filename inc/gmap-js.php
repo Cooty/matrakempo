@@ -5,7 +5,7 @@
   
   function initGmap() {
     var mapSkin = [{"stylers":[{"hue":"#ff1a00"},{"invert_lightness":true},{"saturation":-100},{"lightness":33},{"gamma":0.5}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#2D333C"}]},{"featureType":"road","elementType":"geometry","stylers":[{"color":"#eeeeee"},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"},{"weight":3}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#2D333C"}]}],
-        place = new google.maps.LatLng(47.8084735, 19.95185),
+        place = new google.maps.LatLng(47.7757522, 19.9361529),
         mapOptions = {
           zoom: 14,
           center: place,
@@ -13,7 +13,7 @@
           scrollwheel: false
         },
         map = new google.maps.Map(googleMapContainer, mapOptions),
-        iconPath = '/img/asset/map_marker@2x.png';
+        iconPath = 'http://www.matrakempose.hu/wp-content/themes/matrakempo/img/asset/map_marker@2x.png';
         
         var marker = new google.maps.Marker({
             position: place,

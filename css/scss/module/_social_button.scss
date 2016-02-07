@@ -1,0 +1,45 @@
+.social-button {
+    display: block;
+    height: 30px;
+    padding: 0 20px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $white;
+    line-height: 30px;
+    cursor: pointer;
+    
+    > .icon {
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+    
+    &.fb {
+       background-color: #4c66a4;
+       
+       @include active-state() {
+        background-color: #2f477a;
+       }
+       
+    }
+    
+    &.twit {
+       background-color: #54abed;
+       
+       @include active-state() {
+        background-color: #292f33;
+       }
+       
+    }
+    
+    &.gplus {
+       background-color: #e94a2f;
+       
+       @include active-state() {
+        background-color: #bb3b26;
+       }
+       
+    }
+    
+}

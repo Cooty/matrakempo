@@ -1,0 +1,99 @@
+$w: 30px;
+$h: 80px;
+$border_w: 3px;
+$wrapper_w: 800px;
+
+.article-pager {
+    display: none;
+    @include position(fixed, 60% 0 0 50%);
+    @include size(0px);
+    @include send-to-gpu();
+    
+    @media only screen and (min-width: $wrapper_w + $w * 2) {
+        display: block;
+    }
+    
+    .no-mediaqueries & {
+        display: block;
+    }
+    
+    .article-pager__link {
+        position: relative;
+        float: left;
+        
+        > a {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 0;
+            text-indent: -200px;
+            width: $w;
+            height: $h;
+            background-color: $green;
+            @include transition(background-color, .3s ease-in);
+            
+            @include active-state() {
+                background-color: $light_green;
+            }
+            
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 16px;
+                height: 16px;
+                margin: -8px 0 0 -8px;
+                
+                .no-svg & { background-image: url(../img/sprite/sprite.png); }
+                .svg & { background-image: url(../img/sprite/sprite.svg); }            
+                
+            }
+            
+            &:after {
+                content: '';
+                position: absolute;
+                top: -($w / 2);
+                left: 0;
+                height: 0;
+                line-height: 0;
+            }
+            
+        }
+        
+        &.left {
+            right: ($wrapper_w / 2) + $w;
+            
+            > a {
+                border-right: $border_w solid $dark_green;
+                
+                &:before { background-position: -20px -20px; }
+                
+                &:after {
+                    border-bottom: ($w / 2) solid $dark_green;
+                    border-left: $w solid transparent;
+                }    
+            }
+            
+        }
+        
+        &.right {
+            left: ($wrapper_w / 2) - $border_w;
+            
+            > a {
+                border-left: $border_w solid $dark_green;
+                
+                &:before { background-position: -20px 0; }
+                
+                &:after {
+                    border-bottom: ($w / 2) solid $dark_green;
+                    border-right: $w solid transparent    
+                }    
+            }
+            
+        }
+        
+    }
+    
+}

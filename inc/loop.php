@@ -61,7 +61,7 @@
         <?php endwhile; ?>
     </div><?php #End grid ?>
     <div class="txt txt--align-center pb-40">
-        <a href="<?php bloginfo('url'); ?>/cikkek/" class="btn btn--green btn--icon btn--grow ie7-i-blk-fix wf wf--roboto wf--roboto--light no-selection">
+        <a href="<?php bloginfo('url'); ?>/category/cikkek/page/2/" class="btn btn--green btn--icon btn--grow ie7-i-blk-fix wf wf--roboto wf--roboto--light no-selection">
             További cikkek
             <span class="icon sprite arrow-right ie7-i-blk-fix"></span>
         </a>

@@ -1,0 +1,45 @@
+// the wavy decoration pattern - the containing element has to be positioned
+.decor {
+    position: relative;
+    
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: $decor_h;
+        *background-image: url(../img/sprite/decor_patterns.png); // For IE6-7
+        // 15px X 12px
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAMCAMAAACKnBfWAAAAclBMVEUAAAAYGBgtoCoYGBgtoCoYGBgtoCoYGBgtoCoYGBgtoCoYGBgtoCoYGBgtoCoYGBgtoCoYGBgtoCoYGBgtoCoYGBgtoCotoCoYGBgtoCoYGBgtoCo7vDg1sDI2sjMuoisxpy46ujcuoys8vjk8vzkxqC5gZY4qAAAAGnRSTlMAExMYGBkZPz9BQYKCg4Oamtvb6enr6/v7/NJy9kQAAABiSURBVHheXcjXFkAwFAXRo/eOkBud//9FKyEW9tsMlm1/WUDT8JxhIpSMZqFKHMRKwIzZOopdjGufmpD8lqQ2xM3Oa6pzF5qTVbzKLJ1Bw6XGU2UkHb90kQEUqvQpwL/+fQLtHQ66hdna9gAAAABJRU5ErkJggg==);        
+        background-repeat: repeat-x;
+        
+        // for HIDPI screens - ditched the SVG background, because of weird top border-bug in Chrome, and PNG is smaller plus there would have been a need for a fallback PNG anyway
+        @include hidpi() {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAYCAMAAADat72NAAAA7VBMVEUAAAAtoCotoCoYGBgtoCotoCotoCoYGBgYGBgtoCoYGBgtoCotoCotoCotoCotoCotoCotoCotoCotoCotoCotoCotoCotoCotoCotoCotoCotoCotoCotoCoYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgtoCotoCoYGBgYGBgYGBgtoCo2sjMwpS0toSo7vDg2szMuoys3tTQyqy86uzc4tjUuoSs6vDczrDA8vzk4uDUwpy0xqC45uDY3tDTjo6+KAAAAOnRSTlMA6brol64Mrgzql2rfMKToQ6nHyeXhnaAIXBlfMUBqurhpXurpXAignQYbyccYQ+flPzGnpDAbBuDfjGkwdQAAAMZJREFUeF7FzcVuBEEMRVE3DTIzhJnZbh4O/f/nxIuUVNWpnm3O7ulKNmx3AjdepLVF7AIReaEufnucOLOPPxfWnxxEpuhdrV8RNwa2UyLmu3INfWJtxwZWrhCbByIGc2L1EQjjFu/VZrnmp8vNike1BpJBgxTNZ1C8dOTa7UFSPy9ifggamaJpEBlmMQM6ucnUQrRmezld3T/AX4dHkHR8gpLTM7WeX6Di8kqu1zeYcHsHwv0Dajw+AStkXzHFW7YAuNN/5h9DB38rvPZIfQAAAABJRU5ErkJggg==);
+            background-size: 15px 12px; // downsized from 30px X 24px
+        }
+        
+    }
+    
+    // TODO: add png fallback
+    &.decor--top {
+        
+        &:after {
+            bottom: -$decor_h;
+            background-position: 0 0;
+        }
+        
+    }
+    
+    &.decor--bottom {
+        
+        &:after {
+            top: -$decor_h;
+            background-position: 0 ($decor_h * -1);    
+        }
+        
+    }
+    
+}

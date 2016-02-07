@@ -1,0 +1,21 @@
+// Include inline SVG
+@function svgInline ($width, $height, $paths, $viewBox: (0 0 ($width / 10) ($height / 10))) {
+	$xmlns: ' xmlns="http://www.w3.org/2000/svg"';
+	@return url('data:image/svg+xml,<?xml version="1.0" standalone="yes"?><svg#{$xmlns} width="#{$width}" height="#{$height}" viewBox="#{$viewBox}">#{$paths}</svg>');
+}
+
+@function getRem($sizeValue: 16) {
+	@return ($sizeValue / 16) + 0rem;
+}
+
+@function pxToEm($px, $base: 16) {
+	@return ($px / $base) + 0em;
+}
+
+@function parseInt($n) {
+	@return $n / ($n * 0 + 1);
+}
+
+@function stripUnits($number) {
+	@return $number / ($number * 0 + 1);
+}

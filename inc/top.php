@@ -4,7 +4,9 @@
     <?php # Start top stripe (black)?>
     <div class="header__top" data-top>
         <h1 class="header__top__title txt txt--nowrap txt--upper wrapper">
-          <span class="wf wf--roboto wf--roboto--bold">Mátra</span> <span class="wf wf--roboto wf--roboto--light">Kempo SE</span>
+            <a href="<?php bloginfo('url'); ?>">
+                <span class="wf wf--roboto wf--roboto--bold">Mátra</span> <span class="wf wf--roboto wf--roboto--light">Kempo SE</span>
+            </a>
         </h1>
     </div><?php # End top stripe ?>
     

@@ -1,0 +1,33 @@
+.categories {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    
+    @media only screen and (max-width: $middleweight - 1) {
+        position: static;
+        float: right;
+        padding-bottom: 10px;
+    }
+    
+    .categories__link {
+        @extend %dark-sahdow-on-green;
+        display: inline-block;
+        margin-left: $gutter;
+        padding: 0 $gutter;
+        background: $green;
+        font-size: 12px;
+        color: $white;
+        @include middle-line(20px);
+        
+        @include active-state() {
+            background-color: $grey;
+        }
+        
+        &:first-child {
+            margin-left: 0;
+            background-color: $dark_green;
+        }
+        
+    }
+    
+}

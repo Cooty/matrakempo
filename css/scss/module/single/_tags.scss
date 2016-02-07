@@ -1,0 +1,54 @@
+.tags {
+    $triangle_size: 10px;
+    
+    .tag {
+        @extend %dark-sahdow-on-green;
+        position: relative;
+        display: inline-block;
+        margin: $gutter ($gutter + $triangle_size) 0 0;
+        padding: 0 $gutter;
+        font-size: 12px;
+        color: $white;
+        background-color: $green;
+        @include middle-line(20px);
+        
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $dark_green;
+            
+            &:after {
+                border-left-color: $dark_green;
+            }
+            
+        }
+        
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -$triangle_size;
+            height: 0;
+            line-height: 0;
+            border-top: $triangle_size solid transparent;
+            border-bottom: $triangle_size solid transparent;
+            border-left: $triangle_size solid $green;
+        }
+        
+        &:before {
+            $size: 6px;
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            background-color: $white;
+            margin-top: -($size / 2);
+            border-radius: $size;
+            box-shadow: 1px 1px 0 rgba(0, 0, 0, .2) inset;
+            @include size($size);
+        }
+        
+    }
+    
+}

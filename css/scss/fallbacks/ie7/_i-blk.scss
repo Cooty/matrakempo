@@ -1,0 +1,10 @@
+// inline-block hack for IE7 and under also grouped the media elements fix from Normalize.css to reduce redundancy
+.ie7-i-blk-fix,
+.tag,
+.categories__link,
+audio,
+canvas,
+video {
+    *display: inline;
+    zoom: 1;
+}

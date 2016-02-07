@@ -1,0 +1,76 @@
+$row_h: 39px;
+
+.drawer-menu {
+    border-left: 10px solid $dark_grey;
+    background-color: $grey;
+    overflow: auto;
+    @include size(($drawer-menu_w - 10) 100%);
+    @include position(fixed, 0px 0px 0 0);
+    @include transition(all .2s $ease-out-quad);
+    @include transform(translateX($drawer-menu_w));
+    
+    .no-csstransforms & {
+        right: -$drawer-menu_w; 
+    }
+    
+    .drawer-menu-opened & {
+        @include transform(translateX(0));
+        
+        .no-csstransforms & {
+            right: 0;
+        }
+        
+        @media only screen and (min-width: $middleweight) {
+            @include transform(translateX($drawer-menu_w));
+            
+            .no-csstransforms & {
+                right: -$drawer-menu_w;
+            }
+            
+        }
+        
+    }
+    
+    .drawer-menu__close {
+        @include position(absolute, 10px 10px 0 0);   
+    }
+    
+    .drawer-menu__item {
+        text-decoration: none;
+        color: $white;
+        font-size: 16px;
+        border-top: 1px solid $light_grey;
+        border-bottom: 1px solid $dark_grey;
+        margin: 0 10px;
+        padding: 0 10px;
+        @include middle-line($row_h);
+        @include no-tap;
+        @include transition(background-color .3s ease-in);
+        @include active-state() {
+            background-color: $dark_grey;
+        }
+        
+        &:first-of-type {
+            border-top: none;
+            margin-top: $row_h + 1 + 20;
+        }
+        
+    }
+    
+}
+
+.drawer-menu-opened-overlay {
+    display: none;
+    @include size(100%);
+    @include position(absolute, 0px 0 0 0px);
+    
+    .drawer-menu-opened & {
+        display: block;
+        
+        @media only screen and (min-width: $middleweight) {
+            display: none;
+        }
+        
+    }
+    
+}

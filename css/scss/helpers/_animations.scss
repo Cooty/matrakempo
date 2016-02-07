@@ -1,0 +1,25 @@
+.green-pulse {
+    @include animation(green-pulse .6s $ease-out-quad infinite alternate);   
+}
+
+.rotate {
+   @include animation(rotate .6s $ease-out-quad); 
+}
+
+@include keyframes(green-pulse) {
+    from {
+      background-color: $light_green;
+    }
+    to {
+      background-color: $dark_green;
+    }
+}
+
+@include keyframes(rotate) {
+    from {
+      @include transform(rotate(0deg));
+    }
+    to {
+      @include transform(rotate(360deg));
+    }
+}

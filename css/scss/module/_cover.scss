@@ -1,0 +1,26 @@
+.cover {
+    
+    &.cover--decor-pattern {
+        $w: 3px;
+        
+        width: $w;
+        *background-image: url(../img/sprite/decor_patterns_vert.png); // For IE6-7
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAOCAMAAAA7QZ0XAAAAP1BMVEUYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBhC48/CAAAAFHRSTlMAA/Dyt/22uDMkliUymib8mJu5NFrBDakAAABASURBVHheLcw3DoAwAMBAk0roxf9/K4rIdJIHMwFMzJ2N2im4wyLZtZkJpmQgqsZBj9VAth2eeMEtBeD5Z+9Yf3k4ApFAhxdaAAAAAElFTkSuQmCC);        
+        background-repeat: repeat-y;
+        
+        @include hidpi() {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAcCAMAAABifa5OAAAAjVBMVEUAAAAYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBiHhOCxAAAALnRSTlMAtRAGX+r9KF01/nbVCNCmoApwOEA8/Nwp2mBct+lh2949QnKjAanRCQvWObgq4rnDzwAAAIRJREFUeF510LUSxDAUQ1E5huAiMzPo/z9vx2snb7bI7U6jQkjQlGAuSGEEK6wFChzVyAuwGgR0ugTZC+jTg6XHkAFuDEymEZxpvWANLjMKlBLQbgS+FljbNmC2gp3W+xruABxdxAkAyoAzfJerx+2OX48nUeSIvQiFpjcygUEq+Pzd+wVYQh03XA1WPwAAAABJRU5ErkJggg==);
+            background-size: 6px 14px; 
+        }
+        
+        &.cover--decor-pattern-left {
+            background-position: 0 0;
+        }
+        
+        &.cover--decor-pattern-right {
+            background-position: ($w* -1) 0;
+        }
+        
+    }
+    
+}

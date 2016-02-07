@@ -1,0 +1,68 @@
+.picture-stream {
+    $desktop_h: 290px - $gutter * 4;
+    max-height: 620px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, .3) inset;
+    @include transition(max-height .6s $ease-out-quad);
+    
+    &.closed {
+        max-height: 0;
+    }
+    
+    .picture-stream__items {
+        padding: $gutter * 2 0;
+    }
+    
+    .picture-stream__item {
+        height: 240px;
+        margin: 0 0 $gutter $gutter;
+        vertical-align: top;
+        
+        &:first-child {
+            margin-left: 0;
+        }
+        
+        @media only screen and (max-width: $welterweight - 1) {
+            height: 140px;    
+        }
+        
+        @media only screen and (max-width: 480px) {
+            height: 100px;    
+        }
+        
+        @media only screen and (min-width: $light_heavyweight) {
+            margin-left: $gutter * 2;    
+        }
+        
+    }
+    
+    .picture-stream__img {
+        max-height: 100%;
+        margin: 0 auto;
+        background-color: $dark_grey;
+        box-shadow: 0 0 8px rgba(0, 0, 0, .4);
+    }
+    
+    .picture-stream__reload {
+        position: absolute;
+        bottom: $gutter * 2;
+        left: $gutter * 2;
+        background: $green;
+        line-height: 50px;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 0 8px rgba(0, 0, 0, .4);
+        @include transition(background-color .3s $ease-out-quad);
+        @include size(50px);
+        @include active-state {
+            background-color: $dark_green;
+        }
+        
+        @media only screen and (min-width: $light_heavyweight) {
+            right: $gutter * 8;
+        }
+        
+    }
+    
+}

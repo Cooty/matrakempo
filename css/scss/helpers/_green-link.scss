@@ -1,0 +1,8 @@
+.green-link {
+    color: $green;
+    @include transition(color .3s ease-in);
+    @include no-tap();
+    @include active-state() {
+        color: $dark_green;
+    }
+}

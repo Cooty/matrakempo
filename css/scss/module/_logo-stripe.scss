@@ -1,0 +1,15 @@
+$height: 50px;
+
+.logo-stripe {
+    
+    .logo-stripe__item {
+        height: $height;
+        margin: 0 0 5px $gutter * 2;
+        
+        &:firts-child {
+            margin-left: 0;    
+        }
+        
+    }
+    
+}

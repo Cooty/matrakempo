@@ -1,0 +1,55 @@
+.hero {
+    $home_desktop_h: 471px;
+    
+    position: relative;
+    width: 100%;
+    
+    &.hero--homepage {
+        height: 157px;
+        background-color: $black;
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        background-size: cover;
+        margin-bottom: 40px;
+        
+        @media only screen and (min-width: $middleweight) and (min-height: $tall) {
+            margin-bottom: 60px;
+        }
+        
+        @media only screen and (min-width: $welterweight) {
+            height: 353px;
+        }
+        
+        @media only screen and (min-width: $middleweight) {
+            height: $home_desktop_h;
+        }
+        
+        @media only screen and (min-width: $light_heavyweight) {
+            height: 500px;
+        }
+        
+        @media only screen and (min-width: $heavyweight) {
+            height: 600px; // change the aspect ratio the bottom of the image will get clipped, but the picture won't get distorted 
+        }
+        
+        .no-mediaqueries & {
+            height: $home_desktop_h;
+        }
+        
+    }
+    
+    .hero__cta {
+        width: 100%;
+        z-index: 1;
+        @include position(absolute, 0 0 -20px 0px);
+    }
+    
+    &:after {
+        content: '';
+        display: block;
+        background-color: rgba(0, 0, 0, .3);
+        @include position(absolute, 0 0 0px 0px);
+        @include size(100% 1);
+    }
+    
+}

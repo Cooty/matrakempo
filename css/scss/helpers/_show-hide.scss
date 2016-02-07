@@ -1,0 +1,23 @@
+.hide-above-middleweight {
+    
+    @media only screen and (min-width: $middleweight) { display: none; }
+    
+}
+
+.hide-below-welterweight {
+    
+    @media only screen and (max-width: $welterweight - 1) { display: none; }
+    
+}
+
+.no-touch {
+    
+    .show-on-smartphone { display: none; }
+    
+}
+
+.touch {
+    
+    .hide-on-smartphone { display: none; }
+    
+}

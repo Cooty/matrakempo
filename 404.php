@@ -1,8 +1,12 @@
-<?php get_header(); ?>
-
+<?php
+  if (function_exists('get_header')) {
+    get_header();
+  } else {
+    die();
+  }
+?>
 <?php # Include the top part (header) of the site ?>
 <?php include('inc/top.php'); ?>
-
 <?php # Start content ?>
 <article class="box-404">
     <h1 class="box-404__heading txt txt--align-center wf wf--roboto wf--roboto--bold">404 - :(</h1>

@@ -3,7 +3,7 @@
      * The WP 'loop' for Matra Kempo theme, conditionaly rendered based on the type of templete
     */
 ?>
-    
+
 <?php # Home page ?>
 <?php if(is_home()): ?>
     <?php # Don't show the 'Klubtagok' category here ?>
@@ -17,7 +17,7 @@
                 <div class="grid__item__gutter">
                     <article class="box">
                       <?php $has_featured_image = has_post_thumbnail(); ?>
-                      
+
                       <a href="<?php the_permalink(); ?>" class="box__img blk <?= ($has_featured_image ? 'pattern' : ''); ?>" title="<?php the_title(); ?>">
                         <?php if($has_featured_image): ?>
                             <h1 class="heading box__img__header txt txt--align-left wf wf--roboto z-low">
@@ -46,13 +46,13 @@
                             $dots = '&nbsp;<a class="green-link" href="'.get_the_permalink().'">&hellip;</a>';
                             $limit = ($has_featured_image ? 180 : 360);
                             $truncated_excerpt = trim(tokenTruncate($raw_excerpt, $limit));
-                            
+
                             if(strlen($raw_excerpt) > $limit) {
                                 echo $truncated_excerpt.$dots;
                             } else {
                                 echo $truncated_excerpt;
                             }
-                            
+
                         ?>
                       </div>
                     </article>
@@ -73,15 +73,15 @@
     <?php while ( have_posts() ) : the_post(); ?>
         <article>
             <header class="blk blk--rel">
-            
-            <?php if(in_category('klubtagok') && has_post_thumbnail()): ?>   
+
+            <?php if(in_category('klubtagok') && has_post_thumbnail()): ?>
                <?php
                     $thumb_id = get_post_thumbnail_id();
                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'avatar');
                 ?>
                 <img class="avatar" src="<?= $thumb_url[0]; ?>" alt="<?php the_title(); ?>">
             <?php endif; ?>
-                
+
               <h1 class="heading heading--alpha wf wf--roboto mb-20 <?= (in_category('klubtagok') ? 'txt txt--align-center' : '') ?>">
                 <?php the_title(); ?>
               </h1>
@@ -95,19 +95,19 @@
                 <?php the_category(); ?>
               </nav>*/ ?>
             </header>
-            
+
             <div class="wrapper--narrow__spacer mb-20"></div>
-            
+
             <?php if(!in_category('klubtagok')): ?>
                 <p class="mb-20 txt txt--body-copy wf wf--roboto wf--roboto-light">
                   <?php echo get_the_excerpt(); ?>
                 </p>
             <?php endif; ?>
-            
+
             <div class="txt txt--body-copy user-content wf mb-20 clearfix">
-                <?php the_content(); ?>   
+                <?php the_content(); ?>
             </div>
-            
+
             <?php if(has_tag()): ?>
                 <nav class="tags pt-20 mb-20">
                     <?php
@@ -119,11 +119,11 @@
                     ?>
                 </nav>
             <?php endif; ?>
-            
-            <div class="wrapper--narrow__spacer mb-20"></div> 
-            
+
+            <div class="wrapper--narrow__spacer mb-20"></div>
+
             <?php include('social_buttons.php')?>
-            
+
           </article>
     <?php endwhile; ?>
 <?php endif;?>
@@ -138,7 +138,7 @@
                     <?php if(!in_category('klubtagok')): ?>
                         <article class="box">
                           <?php $has_featured_image = has_post_thumbnail(); ?>
-                          
+
                           <a href="<?php the_permalink(); ?>" class="box__img blk <?= ($has_featured_image ? 'pattern' : ''); ?>" title="<?php the_title(); ?>">
                             <?php if($has_featured_image): ?>
                                 <h1 class="heading box__img__header txt txt--align-left wf wf--roboto z-low">
@@ -158,7 +158,7 @@
                                     $thumb_id = get_post_thumbnail_id();
                                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'box-poster');
                                 ?>
-                                
+
                                 <img class="blk z-bottom" src="<?= $thumb_url[0]; ?>" alt="<?php the_title(); ?>">
                             <?php endif;?>
                           </a>
@@ -168,13 +168,13 @@
                                 $dots = '&nbsp;<a class="green-link" href="'.get_the_permalink().'">&hellip;</a>';
                                 $limit = ($has_featured_image ? 180 : 360);
                                 $truncated_excerpt = trim(tokenTruncate($raw_excerpt, $limit));
-                                
+
                                 if(strlen($raw_excerpt) > $limit) {
                                     echo $truncated_excerpt.$dots;
                                 } else {
                                     echo $truncated_excerpt;
                                 }
-                                
+
                             ?>
                           </div>
                         </article>
@@ -187,7 +187,7 @@
                                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'avatar');
                                     $avatar = $thumb_url[0];
                                 }
-                                
+
                             ?>
                             <img class="avatar" src="<?= $avatar; ?>" alt="<?php the_title(); ?>">
                             <h1 class="heading heading--beta wf wf--roboto wf--roboto--light mb-20">
@@ -214,7 +214,7 @@
               </h1>
             </header>
             <div class="wrapper--narrow__spacer mb-20"></div>
-            
+
             <?php if(has_excerpt()): ?>
                 <p class="mb-20 txt txt--body-copy wf wf--roboto wf--roboto-light">
                     <?php the_excerpt(); ?>
@@ -250,13 +250,13 @@
                         $dots = '&nbsp;<a class="green-link" href="'.get_the_permalink().'">&hellip;</a>';
                         $limit = 180;
                         $truncated_excerpt = trim(tokenTruncate($raw_excerpt, $limit));
-                        
+
                         if(strlen($raw_excerpt) > $limit) {
                             echo $truncated_excerpt.$dots;
                         } else {
                             echo $truncated_excerpt;
                         }
-                        
+
                     ?>
                 </div>
                 <span class="txt txt--light2-grey txt--small wf wf--roboto wf--roboto-light">

@@ -10,7 +10,7 @@
     <button class="btn btn--circle drawer-menu__close" type="button" title="Menü bezárása" data-drawer-closer>
         <span class="icon close sprite"></span>
     </button>
-    
+
     <?
         $defaults = array(
             'menu'            => 'main_menu',
@@ -29,7 +29,7 @@
             'depth'           => 0,
             'walker'          => new main_nav_drawer_menu()
          );
-        
+
         echo strip_tags(wp_nav_menu( $defaults ), '<a>');
     ?>
 </nav>

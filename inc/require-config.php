@@ -17,7 +17,8 @@
             search: 'module/search',
             drawermenu: 'module/drawer-menu',
             textslideshow: 'module/text-slideshow',
-            imagestream: 'module/image-stream'
+            imagestream: 'module/image-stream',
+            responsivetables: 'module/responsive-tables'
         }
     },
     TemplateDirectory = '<?php bloginfo('template_directory'); ?>';

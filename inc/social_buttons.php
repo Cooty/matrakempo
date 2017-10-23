@@ -8,7 +8,7 @@
 <div class="blk blk--i ie7-i-blk-fix mr-20 pb-20">
   <a class="blk social-button fb" href="https://www.facebook.com/sharer/sharer.php?u=<?php urlencode(the_permalink()); ?>" title="Megosztás Facebookon">
     <span class="icon sprite fb"></span>
-    Facebook 
+    Facebook
   </a>
 </div><div class="blk blk--i ie7-i-blk-fix mr-20 pb-20">
   <a class="blk social-button twit" href="https://twitter.com/intent/tweet?text=<?php urlencode(the_title()); ?>&url=<?php urlencode(the_permalink()); ?>" title="Megosztás Twitter">
@@ -19,6 +19,6 @@
   <a class="blk social-button gplus" href="https://plus.google.com/share?url=<?php urlencode(the_permalink()); ?>" title="Megosztás Google+">
     <span class="icon sprite gplus"></span>
     Google+
-  </a> 
+  </a>
 </div>
 <?php # End social share widgets ?>
